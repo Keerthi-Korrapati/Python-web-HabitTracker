@@ -31,6 +31,7 @@ def index():
     completions = [
         habit["habit"]
         for habit in current_app.db.completions.find({"date": selected_date})
+        if "habit" in habit
     ]
 
     return render_template("index.html", 
